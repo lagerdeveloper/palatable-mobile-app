@@ -1,0 +1,2 @@
+export const SESSION_KEY = 'USER_SESSION';
+export const REGISTRATION_KEY = 'USER_REGISTRATION';
