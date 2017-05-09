@@ -13,7 +13,6 @@ function fetchRecipes() {
       },
     })
     .then(ApiErrorHandler)
-    .then(response => response.json())
     .then(responseJson => responseJson)
     .catch((error) => { throw error; });
 }

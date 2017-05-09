@@ -46,7 +46,6 @@ class App extends Component {
           autoRehydrate(),
         )) });
       }
-
       sagaMiddleware.run(rootSaga);
       this.setState({ localStorageLoading: false });
     })

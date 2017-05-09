@@ -37,7 +37,6 @@ function* destroyAccount(action) {
     yield put({ type: 'DESTROY_ACCOUNT_SUCCESS' });
   } catch (error) {
     yield put({ type: 'DESTROY_ACCOUNT_FAILED', error });
-    console.log('SHIT');
   }
 }
 
