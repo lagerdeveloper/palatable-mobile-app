@@ -7,7 +7,7 @@ import { SESSION_KEY } from '../LocalStorageKeys';
 
 function signInRequest(signInParams) {
   return fetch(
-    `${API_URL}/users/sign_in`,
+    `${API_URL}/sign_in`,
     {
       method: 'POST',
       headers: {
@@ -15,7 +15,7 @@ function signInRequest(signInParams) {
         Accept: 'application/json',
       },
       body: JSON.stringify({
-        user: {
+        auth: {
           email: signInParams.email,
           password: signInParams.password,
         },
