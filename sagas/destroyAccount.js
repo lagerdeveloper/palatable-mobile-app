@@ -7,7 +7,7 @@ import { REGISTRATION_KEY, SESSION_KEY } from '../LocalStorageKeys';
 
 function destroyAccountRequest(session) {
   return fetch(
-    `${API_URL}/users`,
+    `${API_URL}/destroy`,
     {
       method: 'DELETE',
       headers: {
@@ -15,11 +15,6 @@ function destroyAccountRequest(session) {
         Accept: 'application/json',
         Authorization: `Bearer ${session.token}`,
       },
-      body: JSON.stringify({
-        user: {
-          id: session.user_id,
-        },
-      }),
     })
     .then(ApiErrorHandler)
     .catch((error) => { throw error; });
@@ -36,6 +31,7 @@ function* destroyAccount(action) {
     console.log('LOCAL STORAGE CLEARED');
     yield put({ type: 'DESTROY_ACCOUNT_SUCCESS' });
   } catch (error) {
+    console.log(error.message);
     yield put({ type: 'DESTROY_ACCOUNT_FAILED', error });
   }
 }

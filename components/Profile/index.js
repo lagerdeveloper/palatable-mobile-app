@@ -14,6 +14,14 @@ class Profile extends Component {
     super(props);
     this.renderJoinButton = this.renderJoinButton.bind(this);
     this.renderProfile = this.renderProfile.bind(this);
+    this.renderError = this.renderError.bind(this);
+  }
+
+  renderError() {
+    if (this.props.error) {
+      return <Text style={styles.errorText}>{this.props.error.message}</Text>;
+    }
+    return null;
   }
 
   renderJoinButton() {
@@ -72,6 +80,7 @@ class Profile extends Component {
     }
     return (
       <View style={styles.container}>
+        {this.renderError()}
         {this.props.signedIn ? this.renderProfile() : this.renderJoinButton()}
       </View>
     );
