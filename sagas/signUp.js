@@ -5,7 +5,7 @@ import ApiErrorHandler from '../ApiErrorHandler';
 
 function signUpRequest(signUpParams) {
   return fetch(
-    `${API_URL}/users`,
+    `${API_URL}/sign_up`,
     {
       method: 'POST',
       headers: {
