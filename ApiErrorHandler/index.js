@@ -1,4 +1,4 @@
-export default (response) => {
+export default (response, message = null) => {
   let responseParsed = false;
   let validResponse = false;
   if (response.status >= 200 && response.status < 300) {
@@ -16,6 +16,8 @@ export default (response) => {
       return null;
     } else if (responseParsed) {
       throw new Error(error.message);
+    } else if (message) {
+      throw new Error(message);
     }
     throw new Error('Not Authorized');
   });

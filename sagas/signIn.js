@@ -21,7 +21,7 @@ function signInRequest(signInParams) {
         },
       }),
     })
-    .then(ApiErrorHandler)
+    .then(response => ApiErrorHandler(response, 'Invalid email or password.'))
     .then(responseJson => responseJson)
     .catch((error) => { throw error; });
 }
