@@ -21,7 +21,7 @@ export default (prevState = Map({ isFetching: false, signedIn: false, signedUp: 
     case 'SIGN_OUT_FAILED':
       return prevState.mergeDeep({ isFetching: false, error: action.error });
     case 'DESTROY_ACCOUNT':
-      return Object.assign({}, prevState, { isFetching: true });
+      return prevState.merge({ isFetching: true, error: undefined })
     case 'DESTROY_ACCOUNT_SUCCESS':
       return Map({
         isFetching: false,
