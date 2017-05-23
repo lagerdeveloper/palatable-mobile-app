@@ -1,65 +1,41 @@
-export default (state = { isFetching: false, signedIn: false, signedUp: false }, action) => {
+import { Map } from 'immutable';
+
+export default (prevState = Map({ isFetching: false, signedIn: false, signedUp: false }), action) => {
   switch (action.type) {
     case 'SIGN_UP':
-      return Object.assign({}, state, { isFetching: true });
+      return Map({ isFetching: true });
     case 'SIGN_UP_SUCCEEDED':
-      return Object.assign({}, state, { isFetching: false, signedUp: true });
+      return Map({ isFetching: false, signedUp: true });
     case 'SIGN_UP_FAILED':
-      return Object.assign({}, state, {
-        isFetching: false,
-        signedUp: false,
-        error: action.error,
-      });
+      return Map({ isFetching: false, signedUp: false, error: action.error });
     case 'SIGN_IN':
-      return Object.assign({}, state, { isFetching: true });
+      return prevState.mergeDeep({ isFetching: true, error: undefined });
     case 'SIGN_IN_SUCCEEDED':
-      return Object.assign({}, state, {
-        isFetching: false,
-        signedIn: true,
-        session: action.session,
-      });
+      return Map({ isFetching: false, signedUp: true, signedIn: true, session: action.session });
     case 'SIGN_IN_FAILED':
-      return Object.assign({}, state, {
-        isFetching: false,
-        error: action.error,
-      });
+      return Map({ isFetching: false, signedUp: true, error: action.error });
     case 'SIGN_OUT':
-      return Object.assign({}, state, { isFetching: true });
+      return prevState.mergeDeep({ isFetching: true });
     case 'SIGN_OUT_SUCCESS':
-      return Object.assign({}, state, {
-        isFetching: false,
-        signedIn: false,
-        session: undefined,
-      });
+      return Map({ isFetching: false, signedIn: false, session: undefined });
     case 'SIGN_OUT_FAILED':
-      return Object.assign({}, state, {
-        isFetching: false,
-        error: action.error,
-      });
+      return prevState.mergeDeep({ isFetching: false, error: action.error });
     case 'DESTROY_ACCOUNT':
-      return Object.assign({}, state, { isFetching: true });
+      return Object.assign({}, prevState, { isFetching: true });
     case 'DESTROY_ACCOUNT_SUCCESS':
-      return Object.assign({}, state, {
+      return Map({
         isFetching: false,
         signedIn: false,
         signedUp: false,
         session: undefined,
       });
     case 'DESTROY_ACCOUNT_FAILED':
-      return Object.assign({}, state, {
-        isFetching: false,
-        error: action.error,
-      });
+      return prevState.mergeDeep({ isFetching: false, error: action.error });
     case 'ADD_PROFILE_IMAGE_SUCCESS':
-      return Object.assign({}, state, {
-        isFetching: false,
-      });
+      return prevState.mergeDeep({ isFetching: false });
     case 'ADD_PROFILE_IMAGE_FAILED':
-      return Object.assign({}, state, {
-        isFetching: false,
-        error: action.error,
-      });
+      return prevState.mergeDeep({ isFetching: false, error: action.error });
     default:
-      return Object.assign({}, state);
+      return prevState;
   }
 };
