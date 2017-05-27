@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 
 function mapStateToProps(state) {
   return {
-    signedIn: state.user.signedIn,
+    signedIn: state.user.get('signedIn'),
   };
 }
 

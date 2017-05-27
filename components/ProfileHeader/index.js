@@ -5,8 +5,8 @@ import styles from './styles';
 
 function mapStateToProps(state) {
   return {
-    signedIn: state.user.signedIn,
-    session: state.user.session,
+    signedIn: state.user.get('signedIn'),
+    session: state.user.get('session'),
   };
 }
 const ProfileHeader = (props) => {
