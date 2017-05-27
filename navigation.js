@@ -44,6 +44,6 @@ const AppNavigator = StackNavigator({
   Initial: { screen: MainScreenNavigator },
   SignUp: { screen: SignUpFormContainer },
   SignIn: { screen: SignInFormContainer },
-});
+}, { mode: 'modal' });
 
 export default AppNavigator;
