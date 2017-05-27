@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import SignInForm from '../components/SignInForm';
 import signIn from '../actions/signIn';
+import CloseScreenButton from '../components/CloseScreenButton';
 
 const actions = {
   signIn,
@@ -29,8 +30,12 @@ class SignInFormContainer extends Component {
   }
 }
 
-SignInFormContainer.navigationOptions = {
-  headerTitle: 'Sign In',
+SignInFormContainer.navigationOptions = ({ navigation }) => {
+  const { goBack } = navigation;
+  return {
+    headerLeft: <CloseScreenButton goBack={goBack} />,
+    headerTitle: 'Sign In',
+  };
 };
 
 export default connect(mapStateToProps, actions)(SignInFormContainer);
