@@ -4,6 +4,7 @@ import { AsyncStorage, ActivityIndicator, View, Text } from 'react-native';
 import createSagaMiddleware from 'redux-saga';
 import { persistStore, autoRehydrate } from 'redux-persist';
 import { createStore, applyMiddleware, compose } from 'redux';
+import { Map } from 'immutable';
 import AppWithNavigationStateContainer from './containers/AppWithNavigation';
 import { SESSION_KEY } from './LocalStorageKeys';
 import reducers from './reducers';
@@ -35,10 +36,10 @@ class App extends Component {
       if (session !== null) {
         const sessionInfo = JSON.parse(session);
         const initialState = {
-          user: {
+          user: Map({
             signedIn: sessionInfo.signedIn,
             session: sessionInfo.session,
-          },
+          }),
         };
 
         this.setState({ store: createStore(reducers, initialState, compose(
@@ -46,7 +47,6 @@ class App extends Component {
           autoRehydrate(),
         )) });
       }
-
       sagaMiddleware.run(rootSaga);
       this.setState({ localStorageLoading: false });
     })

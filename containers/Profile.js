@@ -17,10 +17,10 @@ const actions = {
 
 function mapStateToProps(state) {
   return {
-    isFetching: state.user.isFetching,
-    signedIn: state.user.signedIn,
-    session: state.user.session,
-    error: state.user.error,
+    isFetching: state.user.get('isFetching'),
+    signedIn: state.user.get('signedIn'),
+    session: state.user.get('session'),
+    error: state.user.get('error'),
   };
 }
 

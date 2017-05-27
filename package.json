@@ -12,6 +12,7 @@
 		"eslint-plugin-import": "^2.2.0",
 		"eslint-plugin-jsx-a11y": "^4.0.0",
 		"eslint-plugin-react": "^6.9.0",
+		"immutable": "^3.8.1",
 		"react": "16.0.0-alpha.6",
 		"react-native": "0.44.0",
 		"react-native-image-picker": "^0.26.3",

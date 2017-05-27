@@ -47,4 +47,10 @@ export default StyleSheet.create({
     color: 'blue',
     textDecorationLine: 'underline',
   },
+  errorText: {
+    fontSize: 17,
+    color: '#a94442',
+    alignSelf: 'center',
+    marginBottom: 10,
+  }
 });

@@ -6,7 +6,7 @@ import TabIcon from '../components/TabIcon';
 
 function mapStateToProps(state) {
   return {
-    session: state.user.session,
+    session: state.user.get('session'),
   };
 }
 

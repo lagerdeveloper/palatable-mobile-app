@@ -7,7 +7,7 @@ import { SESSION_KEY } from '../LocalStorageKeys';
 
 function signInRequest(signInParams) {
   return fetch(
-    `${API_URL}/users/sign_in`,
+    `${API_URL}/sign_in`,
     {
       method: 'POST',
       headers: {
@@ -15,14 +15,13 @@ function signInRequest(signInParams) {
         Accept: 'application/json',
       },
       body: JSON.stringify({
-        user: {
+        auth: {
           email: signInParams.email,
           password: signInParams.password,
         },
       }),
     })
-    .then(ApiErrorHandler)
-    .then(response => response.json())
+    .then(response => ApiErrorHandler(response, 'Invalid email or password.'))
     .then(responseJson => responseJson)
     .catch((error) => { throw error; });
 }
