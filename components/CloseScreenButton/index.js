@@ -17,7 +17,9 @@ const mapDispatchToProps = (dispatch) => ({
 class CloseScreenButton extends Component {
   onPressHandler() {
     this.props.goBack();
-    this.props.clearErrors();
+    if (this.props.error) {
+      this.props.clearErrors();
+    }
   }
 
   render() {
