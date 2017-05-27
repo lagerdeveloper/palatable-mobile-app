@@ -34,7 +34,6 @@ ProfileContainer.navigationOptions = {
   tabBarIcon: ({ tintColor }) => (
     <TabIcon iconName="user-circle" tintColor={tintColor} />
   ),
-  tabBarVisible: true,
   headerTitle: <ProfileHeader />,
 };
 

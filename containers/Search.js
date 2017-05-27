@@ -12,7 +12,6 @@ Search.navigationOptions = {
   tabBarIcon: ({ tintColor }) => (
     <TabIcon iconName="search" tintColor={tintColor} />
   ),
-
   headerTitle: 'Search',
   headerTitleStyle: {
     fontSize: 22,
