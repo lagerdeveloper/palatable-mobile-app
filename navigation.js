@@ -17,7 +17,6 @@ const SearchNavigator = StackNavigator({
 
 const CookBookNavigator = StackNavigator({
   cookbook: { screen: CookBookContainer },
-  newRecipe: { screen: RecipeFormContainer },
 }, { headerMode: 'none' });
 
 const ProfileNavigator = StackNavigator({
@@ -44,6 +43,7 @@ const AppNavigator = StackNavigator({
   Initial: { screen: MainScreenNavigator },
   SignUp: { screen: SignUpFormContainer },
   SignIn: { screen: SignInFormContainer },
+  newRecipe: { screen: RecipeFormContainer },
 }, { mode: 'modal' });
 
 export default AppNavigator;
