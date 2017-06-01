@@ -20,7 +20,7 @@ class AddRecipeButton extends Component {
 
   render() {
     return (
-      <TouchableHighlight style={{ paddingRight: 20 }} onPress={this.onPressHandler.bind(this)}>
+      <TouchableHighlight style={{ marginRight: 20 }} onPress={this.onPressHandler.bind(this)}>
         <Icon
           name="ios-add"
           size={28}

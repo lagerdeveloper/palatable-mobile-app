@@ -35,6 +35,8 @@ export default (prevState = Map({ isFetching: false, signedIn: false, signedUp: 
       return prevState.mergeDeep({ isFetching: false });
     case 'ADD_PROFILE_IMAGE_FAILED':
       return prevState.mergeDeep({ isFetching: false, error: action.error });
+    case 'CLEAR_ERRORS':
+      return prevState.mergeDeep({ error: undefined });
     default:
       return prevState;
   }

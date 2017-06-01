@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import signUp from '../actions/signUp';
 import SignUpForm from '../components/SignUpForm';
 import TabIcon from '../components/TabIcon';
+import CloseScreenButton from '../components/CloseScreenButton';
 
 const actions = {
   signUp,
@@ -29,8 +30,12 @@ class SignUpFormContainer extends Component {
   }
 }
 
-SignUpFormContainer.navigationOptions = {
-  headerTitle: 'Sign Up',
+SignUpFormContainer.navigationOptions = ({ navigation }) => {
+  const { goBack } = navigation;
+  return {
+    headerTitle: 'Sign Up',
+    headerLeft: <CloseScreenButton goBack={goBack} />,
+  };
 };
 
 export default connect(mapStateToProps, actions)(SignUpFormContainer);
