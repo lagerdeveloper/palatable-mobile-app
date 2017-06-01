@@ -13,18 +13,25 @@ class RecipeForm extends Component {
   render() {
     return (
       <View style={{ flex: 1 }}>
-        <ScrollView pagingEnabled horizontal>
+        <ScrollView
+          pagingEnabled
+          horizontal
+          onScroll={(e) => { console.log(e.nativeEvent); }}
+        >
           <View style={styles.slide}>
             <Text>First Slide</Text>
-            <AutoExpandingTextInput
-              initialHeight={30}
-              style={styles.titleInput}
-            />
             <TextInput
               autoCapitalize="words"
               onChangeText={text => this.setState({ title: text })}
               placeholder="Title (ex. German Chocolate Cake)"
+              placeholderTextColor='grey'
               style={styles.titleInput}
+            />
+            <AutoExpandingTextInput
+              initialHeight={30}
+              style={styles.titleInput}
+              placeholder="Description"
+              placeholderTextColor='grey'
             />
           </View>
           <View style={styles.slide}>
