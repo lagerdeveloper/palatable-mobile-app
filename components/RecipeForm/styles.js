@@ -18,24 +18,26 @@ export default StyleSheet.create({
   },
 
   paginationContainer: {
-    justifyContent: 'space-around',
-    alignItems: 'center',
     flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
     margin: 5,
   },
 
   activeDot: {
-    width: 8,
-    height: 8,
-    borderRadius: 4,
+    width: 12,
+    height: 12,
+    borderRadius: 6,
+    margin: 2,
     backgroundColor: 'red',
   },
 
   normalDot: {
-    width: 8,
-    height: 8,
-    borderRadius: 4,
+    width: 12,
+    height: 12,
+    borderRadius: 6,
     borderWidth: 1,
+    margin: 2,
     borderColor: 'red',
   },
 });

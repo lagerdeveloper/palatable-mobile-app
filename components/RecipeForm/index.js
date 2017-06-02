@@ -25,7 +25,7 @@ class RecipeForm extends Component {
       if (i === this.state.pageIndex) {
         pageButtons.push(<View key={i} style={styles.activeDot} />);
       } else {
-        pageButtons.push(<View key={i} style={styles.normalDot} />);  
+        pageButtons.push(<View key={i} style={styles.normalDot} />);
       }
     }
     return (
