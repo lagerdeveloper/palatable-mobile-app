@@ -16,4 +16,26 @@ export default StyleSheet.create({
     padding: 5,
     fontSize: 14,
   },
+
+  paginationContainer: {
+    justifyContent: 'space-around',
+    alignItems: 'center',
+    flexDirection: 'row',
+    margin: 5,
+  },
+
+  activeDot: {
+    width: 8,
+    height: 8,
+    borderRadius: 4,
+    backgroundColor: 'red',
+  },
+
+  normalDot: {
+    width: 8,
+    height: 8,
+    borderRadius: 4,
+    borderWidth: 1,
+    borderColor: 'red',
+  },
 });
