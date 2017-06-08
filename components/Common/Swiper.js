@@ -13,13 +13,14 @@ class Swiper extends Component {
   }
 
   renderPagination() {
+    const { activeDotStyle, normalDotStyle } = this.props;
     let pageButtons = [];
-    const numChildren = React.Children.count(this.props.children);
-    for (let i = 0; i < numChildren; i++) {
+    const numPages = React.Children.count(this.props.children);
+    for (let i = 0; i < numPages; i++) {
       if (i === this.state.pageIndex) {
-        pageButtons.push(<View key={i} style={styles.activeDot} />);
+        pageButtons.push(<View key={i} style={activeDotStyle ? activeDotStyle: styles.activeDot} />);
       } else {
-        pageButtons.push(<View key={i} style={styles.normalDot} />);
+        pageButtons.push(<View key={i} style={normalDotStyle ? normalDotStyle : styles.normalDot} />);
       }
     }
     return (
