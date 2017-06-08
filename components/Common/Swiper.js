@@ -13,7 +13,11 @@ class Swiper extends Component {
   }
 
   renderPagination() {
-    const { activeDotStyle, normalDotStyle } = this.props;
+    const {
+      activeDotStyle,
+      normalDotStyle,
+      paginationContainerStyle
+    } = this.props;
     let pageButtons = [];
     const numPages = React.Children.count(this.props.children);
     for (let i = 0; i < numPages; i++) {
@@ -24,7 +28,7 @@ class Swiper extends Component {
       }
     }
     return (
-      <View style={styles.paginationContainer}>
+      <View style={paginationContainerStyle ? paginationContainerStyle: styles.paginationContainer}>
         {pageButtons}
       </View>
     );
