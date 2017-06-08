@@ -9,6 +9,9 @@ class RecipeForm extends Component {
     super(props);
     this.state = {
       title: '',
+      description: '',
+      activeTime: 0,
+      prepTIme: 0,
     };
   }
 
