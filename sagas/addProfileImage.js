@@ -15,8 +15,7 @@ function addProfileImageRequest(session, imageSourceUrl) {
       },
       body: JSON.stringify({
         user: {
-          id: session.user_id,
-          profile_image: imageSourceUrl,
+          image: imageSourceUrl,
         },
       }),
     })
